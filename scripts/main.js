@@ -118,3 +118,27 @@ deleteButtons.forEach(button => {
 
     });
 });
+
+function checkEmptyState() {
+    const jobCards = document.querySelectorAll(".job-card");
+    let hasVisible = false;
+
+    for (let card of jobCards) {
+        if (currentFilter === "all") {
+            hasVisible = true;
+        }
+        else if (card.dataset.status === currentFilter) {
+            hasVisible = true;
+        }
+    }
+    if (hasVisible) {
+        emptyContainer.style.display = "none";
+    } else {
+        emptyContainer.style.display = "flex";
+    }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+    filterCards("all");
+    setActiveButton(allFilterBtn);
+});
