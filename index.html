@@ -47,9 +47,28 @@
             </figure>
         </header>
 
+        <!-- AVAILABLE JOBS PART -->
+        <section class="py-6 pb-20">
+            <!-- TOP NAVIGATION PART -->
+            <div class="py-2">
+                <div class="mb-4 flex items-center justify-between w-full">
+                    <h1 class="font-bold sm:text-3xl text-xl">Available Jobs</h1>
+                    <span id="availableJobs" class="font-semibold sm:text-xl text-md text-gray-300">0 Jobs</span>
+                </div>
+                <div class="flex items-center gap-3 flex-wrap">
+                    <button onclick="setActiveButton(this); filterCards('all')" id="all-filter-btn" data-value="all"
+                        class="tabButton btn px-7 border-gray-700">All</button>
+                    <button onclick="setActiveButton(this); filterCards('interview')" id="interview-filter-btn"
+                        data-value="interview" class="tabButton btn px-7 border-gray-700">Interview</button>
+                    <button onclick="setActiveButton(this); filterCards('rejected')" id="rejected-filter-btn"
+                        data-value="rejected" class="tabButton btn px-7 border-gray-700">Rejected</button>
+                </div>
+            </div>
+        </section>
+
     </main>
     <!-- SCRIPT FILES -->
-        <script src="scripts/main.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
