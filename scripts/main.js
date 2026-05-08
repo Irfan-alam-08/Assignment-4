@@ -57,3 +57,45 @@ function filterCards(type) {
     });
     checkEmptyState();
 }
+
+const interviewButtons = document.querySelectorAll(".interview-btn");
+interviewButtons.forEach(button => {
+    button.addEventListener("click", function () {
+        const card = button.closest(".job-card");
+        card.dataset.status = "interview";
+
+        const badge = card.querySelector(".notApp-badge");
+        badge.innerText = "Interview";
+
+        badge.classList.remove("badge-outline", "badge-error", "badge-success");
+        badge.classList.add("badge-success");
+
+        calculateCount();
+        checkEmptyState();
+        filterCards(currentFilter);
+    });
+
+});
+
+const rejectedButtons = document.querySelectorAll(".rejected-btn");
+rejectedButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const card = button.closest(".job-card");
+
+        card.dataset.status = "rejected";
+
+        const badge = card.querySelector(".notApp-badge");
+
+        badge.innerText = "Rejected";
+
+        badge.classList.remove("badge-outline", "badge-error", "badge-success");
+        badge.classList.add("badge-error");
+
+        calculateCount();
+        checkEmptyState();
+        filterCards(currentFilter);
+    });
+
+});
