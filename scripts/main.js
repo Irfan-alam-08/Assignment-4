@@ -99,3 +99,22 @@ rejectedButtons.forEach(button => {
     });
 
 });
+
+const deleteButtons = document.querySelectorAll(".delete-btn");
+deleteButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const card = button.closest(".job-card");
+
+        card.style.opacity = "0";
+        setTimeout(() => {
+
+            card.remove();
+            calculateCount();
+            checkEmptyState()
+
+        }, 300);
+
+    });
+});
