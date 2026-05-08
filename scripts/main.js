@@ -39,3 +39,21 @@ function setActiveButton(activeBtn) {
         }
     });
 }
+
+function filterCards(type) {
+    currentFilter = type;
+
+    const jobCards = document.querySelectorAll(".job-card");
+    jobCards.forEach(card => {
+        if (type === "all") {
+            card.style.display = "block";
+        }
+        else if (card.dataset.status === type) {
+            card.style.display = "block";
+        }
+        else {
+            card.style.display = "none";
+        }
+    });
+    checkEmptyState();
+}
