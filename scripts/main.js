@@ -25,3 +25,17 @@ function calculateCount() {
     availableJobs.innerText = jobCards.length + " Jobs";
 }
 calculateCount();
+
+function setActiveButton(activeBtn) {
+    const filterButtons = document.querySelectorAll(".tabButton");
+
+    filterButtons.forEach(button => {
+        if (button === activeBtn) {
+            button.classList.add("bg-gray-700", "text-white");
+            button.classList.remove("border-gray-700");
+        } else {
+            button.classList.remove("bg-gray-700", "text-white");
+            button.classList.add("border-gray-700");
+        }
+    });
+}
