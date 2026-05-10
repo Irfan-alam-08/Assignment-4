@@ -69,14 +69,6 @@ function filterCards(type) {
         else if (card.dataset.status === type) {
             card.style.display = "block";
         }
-        // else if (type === "interview"  && card.dataset.status === "interview") {
-        //     card.style.display = "block";
-        //     availableJobs.innerText = "Interviewing " + document.querySelectorAll('[data-status="interview"]').length + " Jobs";
-        // }
-        // else if (type === "rejected" && card.dataset.status === "rejected") {
-        //     card.style.display = "block";
-        //     availableJobs.innerText = "Rejected " + document.querySelectorAll('[data-status="rejected"]').length + " Jobs";
-        // }
         else {
             card.style.display = "none";
         }
