@@ -44,6 +44,24 @@ function filterCards(type) {
     currentFilter = type;
 
     const jobCards = document.querySelectorAll(".job-card");
+
+    // Dynamic Count Text
+    if (type === "all") {
+        availableJobs.innerText = jobCards.length + " Jobs";
+    }
+    else if (type === "interview") {
+        availableJobs.innerText =
+            "Interviewing " +
+            document.querySelectorAll('[data-status="interview"]').length +
+            " of " + jobCards.length + " Jobs";
+    }
+    else if (type === "rejected") {
+        availableJobs.innerText =
+            "Rejected " +
+            document.querySelectorAll('[data-status="rejected"]').length +
+            " of " + jobCards.length + " Jobs";
+    }
+
     jobCards.forEach(card => {
         if (type === "all") {
             card.style.display = "block";
@@ -51,6 +69,14 @@ function filterCards(type) {
         else if (card.dataset.status === type) {
             card.style.display = "block";
         }
+        // else if (type === "interview"  && card.dataset.status === "interview") {
+        //     card.style.display = "block";
+        //     availableJobs.innerText = "Interviewing " + document.querySelectorAll('[data-status="interview"]').length + " Jobs";
+        // }
+        // else if (type === "rejected" && card.dataset.status === "rejected") {
+        //     card.style.display = "block";
+        //     availableJobs.innerText = "Rejected " + document.querySelectorAll('[data-status="rejected"]').length + " Jobs";
+        // }
         else {
             card.style.display = "none";
         }
